@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/firstFragment">
+    <fragment
+        android:id="@+id/firstFragment"
+        android:name="com.example.myapplication.FirstFragment"
+        android:label="fragment_fragment1"
+        tools:layout="@layout/fragment_first" >
+        <action
+            android:id="@+id/action_firstFragment_to_secondFragment"
+            app:destination="@id/secondFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_navigation"
+            app:destination="@id/navigation" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondFragment"
+        android:name="com.example.myapplication.SecondFragment"
+        android:label="fragment_blank"
+        tools:layout="@layout/fragment_second" >
+        <action
+            android:id="@+id/action_blankFragment2_to_fragment3"
+            app:destination="@id/threadFragment"
+            app:launchSingleTop="false"
+ />
+    </fragment>
+    <fragment
+        android:id="@+id/threadFragment"
+        android:name="com.example.myapplication.ThridFragment"
+        android:label="fragment_fragment3"
+        tools:layout="@layout/fragment_third" >
+        <action
+            android:id="@+id/action_fragment3_to_firstFragment"
+            app:destination="@id/firstFragment"
+            app:popUpTo="@+id/threadFragment"
+            app:popUpToInclusive="true"
+/>
+    </fragment>
+
+
+
+
+
+
+    <navigation android:id="@+id/navigation"
+        app:startDestination="@id/nestedFragment1">
+
+        <fragment
+            android:id="@+id/nestedFragment1"
+            android:name="com.example.myapplication.NestedFragment1"
+            android:label="fragment_nested_fragment1"
+            tools:layout="@layout/fragment_nested_fragment1">
+            <action
+
+                android:id="@+id/action_nestedFragment1_to_nestedFragment2"
+
+                app:destination="@id/nestedFragment2"
+
+
+       />
+        </fragment>
+
+        <fragment
+            android:id="@+id/nestedFragment2"
+            android:name="com.example.myapplication.NestedFragment2"
+            android:label="fragment_nested_fragment2"
+            tools:layout="@layout/fragment_nested_fragment2" />
+        <action
+            android:id="@+id/action_global_firstFragment3"
+            app:destination="@id/firstFragment"
+/>
+    </navigation>
+</navigation>
